@@ -336,7 +336,11 @@ document.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
     }
 
-    if (!ccValidator()) {
-        e.preventDefault();
+    let paymentMethod = document.getElementById('payment').value;
+
+    if (paymentMethod == 'credit-card') {
+        if (!ccValidator()) {
+            e.preventDefault();
+        }
     }
 });
