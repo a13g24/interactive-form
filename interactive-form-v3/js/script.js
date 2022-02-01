@@ -79,7 +79,17 @@ designSelector.addEventListener('change', (e) => {
         jsPuns.forEach( el => el.hidden = boolOne );
         heartJs.forEach( el => el.hidden = boolTwo );
     }
-    
+
+    // reveals the first option in the selected list
+    let showFirst = function(element) {
+        for (let child of element.children) {
+            if (!child.hidden) {
+                child.selected = true;
+                break;
+            }
+        }
+    }
+
     // display js puns
     if (e.target.value.toLowerCase() === 'js puns') {
         hideUnhide(false, true);
@@ -87,6 +97,8 @@ designSelector.addEventListener('change', (e) => {
         // display I heart options
         hideUnhide(true, false);
     }
+
+    showFirst(colorSelector);
 });
 
 // register for activities section
